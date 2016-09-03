@@ -33,7 +33,9 @@ int main()
 
 This is what we call the source code of a computer program. Source code is the human readable version of a computer program's algorithm. We must convert source code into a computer program before we can execute it (a process known as compiling), this is done by using a program known as a compiler. 
 
-If you are using any UNIX-like operating system (including Linux and Mac OS X), you can compile a source file named hello.cpp by typing this command into your Terminal or Command-Line Interpreter program:
+Compilers as well as other programmer tools can be executed through the operating system's command-line interface. 
+
+If you are using any UNIX-like operating system (including Linux and Mac OS X), you can compile a source file named hello.cpp by typing this command into your command-line interface:
 \begin{lstlisting}
 c++ hello.cpp
 \end{lstlisting}
@@ -46,17 +48,47 @@ Take note that the compiler and the hello world program both execute within an e
 
 \subsection*{Data types}
 
-A computer program is usually created for processing data. In order to process data, computer programs must first be capable of storing data. Different types of data must be distinguishable as well. 
+A computer program is usually created for processing data. Processing data requires being able to distinguish between different types of data. The C++ programming language supports many elementary data types, four of them that you should know are in the following table: \\
 
-C++ supports a number of basic data types. Three basic data types you should be familiar with are: char, int, and double. 
+\begin{tabular}{|l|l|l|}
+\hline
+{\bf Data type} & {\bf Size} & {\bf Range} \\
+\hline
+bool & 1 byte & true or false \\
+\hline
+char & 1 byte & -128 to 127 \\
+\hline
+int & 4 bytes & -2147483648 to 2147483647 \\
+\hline
+double & 8 bytes & $\pm1.7 \times 10^{308}$ \\
+\hline
+\end{tabular} \\
 
-char is short for character. It represents almost any key that you can press from your keyboard. A character can have a value such as: `a', `3', `\%', `.', ` ', `J'. A variable of type char occupies exactly 1 byte in the computer's memory. All text that you see on your computer screen is stored in a program in the form of character sequences. 
+bool is short for boolean. Data of type bool can have one of two values: true or false. Some expressions in C++ often result in a boolean value, this is typically the case when you are mathematically comparing two values.
 
-int stands for integer. It represents a negative or positive whole number. Integers usually occupy 4 bytes in memory, therefore their minimum and maximum values are approximately -2 billion and 2 billion respectively. 
+char is short for character. It represents almost any key that you can press from your keyboard. A character can have a value such as: `a', `3', `\%', `.', ` ', `J'. All text that you see on your computer screen is stored in the computer's memory as sequences of characters. While C++ allows you to express characters as their symbol in single-quotes, each character actually represents an integer within the range of 1 byte.
 
-double stands for double-precision floating-point. You do not need to know what that means exactly, just know that double is used for representing fractional numbers. On most computers, a double occupies 8 bytes in memory which means that their range is $1.7 \times 10^{\pm 308}$
+int stands for integer. It represents a negative or positive whole number. Integers are useful for basic arithmetic where fractional values are not required. 
 
-\subsubsection*{Basic Input and Output}
+double stands for double-precision floating-point. You do not need to know what that means exactly, just know that double is used for representing fractional numbers. If you are performing any scientific or financial calculations, you should use this data type as opposed to an integer. 
+
+There are many other basic data types in C++, some of them are variations of the int and double data types. In this course, we will stick to these four basic data types.
+
+\subsection*{Variables}
+
+In addition to distinguishing between different types of data, computer programs should have a way to store data. C++, as well as many other programming languages, allow you to do this by declaring variables.
+
+In C++, all variables have a data type, a name, and a value. To declare a variable, you must specify at least the data type and the name of the variable. For instance:
+
+\begin{lstlisting}[caption=A series of variable declarations in C++]
+int x;
+double amount;
+bool cointoss;
+int weight = 150;
+double balance = 5071.12;
+char q = 'A';
+bool verified = true;
+\end{lstlisting}
 
 
 \end{document}
