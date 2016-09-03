@@ -1,0 +1,62 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\begin{document}
+\lstset{frame=single,tabsize=4,basicstyle=\ttfamily}
+
+{\centering \bf \Large
+Lecture 1 Notes \\[\baselineskip]
+}
+
+\subsection*{Introduction}
+
+CSE 201 is one of the first CSE courses that students at CSUSB enroll in. Many new students are unaware of what Computer Science demands from it's potential scholars. It is first important to know that we are not studying the computer; the computer is simply a tool for us to apply our theories. What we are studying is: not the computer, but computation itself, or (in other words) algorithms. An algorithm is a series of instructions for performing a particular task. 
+
+Creating and applying algorithms involves significant application of logic and mathematics. Inside a computer, an algorithm can physically exist in the form of a computer program. The process of creating a computer program is called computer programming.
+
+CSE 201 serves as an introduction to computer programming. We will use a programming language known as C++.
+
+\subsection*{Your first program}
+
+The first program that you usually create in any programming language is known as the ``hello world'' program. The only function of this program is to display a message. In C++ that program can be expressed in the following form:
+
+\begin{lstlisting}[caption=hello.cpp]
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	cout << "hello world" << endl;
+	return 0;
+}
+\end{lstlisting}
+
+This is what we call the source code of a computer program. Source code is the human readable version of a computer program's algorithm. We must convert source code into a computer program before we can execute it (a process known as compiling), this is done by using a program known as a compiler. 
+
+If you are using any UNIX-like operating system (including Linux and Mac OS X), you can compile a source file named hello.cpp by typing this command into your Terminal or Command-Line Interpreter program:
+\begin{lstlisting}
+c++ hello.cpp
+\end{lstlisting}
+A program named ``a.out'' will be produced.  You may execute the a.out program with the following command:
+\begin{lstlisting}
+./a.out
+\end{lstlisting}
+
+Take note that the compiler and the hello world program both execute within an environment known as the command-line interface. This environment has text-only graphics; devoid of any buttons, scrollbars, or images. This is a programmer-friendly environment that is not only easier to create programs in, but also extends more power to the user. 
+
+\subsection*{Data types}
+
+A computer program is usually created for processing data. In order to process data, computer programs must first be capable of storing data. Different types of data must be distinguishable as well. 
+
+C++ supports a number of basic data types. Three basic data types you should be familiar with are: char, int, and double. 
+
+char is short for character. It represents almost any key that you can press from your keyboard. A character can have a value such as: `a', `3', `\%', `.', ` ', `J'. A variable of type char occupies exactly 1 byte in the computer's memory. All text that you see on your computer screen is stored in a program in the form of character sequences. 
+
+int stands for integer. It represents a negative or positive whole number. Integers usually occupy 4 bytes in memory, therefore their minimum and maximum values are approximately -2 billion and 2 billion respectively. 
+
+double stands for double-precision floating-point. You do not need to know what that means exactly, just know that double is used for representing fractional numbers. On most computers, a double occupies 8 bytes in memory which means that their range is $1.7 \times 10^{\pm 308}$
+
+\subsubsection*{Basic Input and Output}
+
+
+\end{document}
