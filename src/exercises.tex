@@ -1,0 +1,106 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\setlength{\parindent}{0pt}
+\begin{document}
+\lstset{tabsize=4,frame=single,basicstyle=\ttfamily}
+
+\subsection*{Exercise ???}
+\begin{lstlisting}[caption=hello.cpp]
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	cout << "hello, world" << endl;
+	return 0;
+}
+\end{lstlisting}
+Compile and run the above program on your system. 
+
+\subsection*{Excercise ???}
+\begin{lstlisting}[caption=name.cpp]
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	string first;
+
+	cout << "What is your first name? ";
+	cin >> first;
+
+	cout << "Hello, " << first << endl;
+	return 0;
+}	
+\end{lstlisting}
+
+Modify the above program to make it ask the user for their first and last name. Then make it display ``Hello, '' followed by their first and last name.
+
+\subsection*{Excercise ???}
+
+Make a program that calculates the area of a rectangle from length and width values given by the user.
+
+\subsection*{Excercise ???}
+
+Make a program that calculates the volume of a cube from 3 side lengths given by the user.
+
+\subsection*{Excercise ???}
+
+Make a program that adds a 15 percent tip to any dollar amount given by the user.
+
+\subsection*{Excercise ???}
+
+Make a program that asks the user to enter the weight of an object, then calculate and display the mass of that object (Hint: w = mg, where g = 9.81).
+
+\subsection*{Excercise ???}
+
+Make a program that calculates the mean value of 3 integers given by the user.
+
+\subsection*{Excercise ???}
+
+\begin{lstlisting}[caption=avg.cpp]
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	double n;
+	vector<double> v;
+
+	cout << "Enter some numbers (press CTRL-D to stop): ";
+	while (cin.good()) {
+		cin >> n;
+		v.push_back(n);
+	}
+	/* YOUR CODE GOES HERE */
+	return 0;
+}
+\end{lstlisting}
+
+Add code to the above program to calculate and display the mean value of the numbers stored in vector v.
+
+\subsection*{Excercise ???}
+
+Create a program that randomly prints ``heads'' or ``tails'' each time it is ran.
+
+\subsection*{Excercise ???}
+
+Create a program that prints a random number from 1 to 6.
+
+\subsection*{Excercise ???}
+
+Create a program that counts the number of words from standard input
+
+\subsection*{Excercise ???}
+
+Create a program that prints all of it's input converted to upper-case.
+
+\subsection*{Excercise ???}
+
+Create a program that reads all the words from it's standard input, then outputs the words in reverse order (order in which words appear is reversed, not the letters).
+
+\end{lstlisting}
+\end{document}

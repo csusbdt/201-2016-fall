@@ -1,0 +1,53 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\lstset{frame=single,basicstyle=\ttfamily,tabsize=4}
+
+{\centering
+\large \bf
+Lab 1
+}
+
+\subsubsection*{Exercise 1}
+\begin{lstlisting}[caption=hello.cpp]
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	cout << "hello, world" << endl;
+	return 0;
+}
+\end{lstlisting}
+Compile and run the above program on your system
+
+\subsubsection*{Exercise 2}
+\begin{lstlisting}[caption=name.cpp]
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	char firstname[32];
+
+	cout << "What is your first name? ";
+	cin >> firstname;
+	
+	cout << "Hello, " << firstname << endl;
+	return 0;
+}
+\end{lstlisting}
+Modify the above program to make it ask the user for their first and last name. Then make it display ``Hello, '' followed by their first and last name.
+
+\subsubsection*{Exercise 3}
+Create a program that calculates the volume of a cube from 3 side lengths given by the user. Name your source code volume.cpp
+
+\subsubsection*{Exercise 4}
+Create a program that calculates the mean value of 3 numbers given by the user.
+
+\end{document}
