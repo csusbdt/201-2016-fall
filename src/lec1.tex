@@ -35,8 +35,9 @@ This is what we call the source code of a computer program. Source code is the h
 
 Compilers as well as other programmer tools can be executed through the operating system's command-line interface. 
 
-If you are using any UNIX-like operating system (including Linux and Mac OS X), you can compile a source file named hello.cpp by typing this command into your command-line interface:
+Assuming that you are using Linux, if you saved hello.cpp in your Documents folder, then you can compile it by typing these commands into your terminal emulator:
 \begin{lstlisting}
+cd ~/Documents
 c++ hello.cpp
 \end{lstlisting}
 A program named ``a.out'' will be produced.  You may execute the a.out program with the following command:
@@ -90,5 +91,42 @@ char q = 'A';
 bool verified = true;
 \end{lstlisting}
 
+As you can see, variables can optionally have a value assigned upon declaration. If no value is assigned, the default value is used: \\
+
+\begin{tabular}{|l|l|}
+\hline
+{\bf Data type} & {\bf Default value} \\
+\hline
+bool & false \\
+\hline
+char & '\textbackslash 0' \\
+\hline
+int & 0 \\
+\hline
+double & 0.0 \\
+\hline
+\end{tabular} \\
+
+After a variable has been declared, it's stored value can be fetched by simply referring to the name of the variable. 
+
+\subsection*{Expressions and Statements}
+
+Formally, every C++ program is a sequence of statements. Each statement performs an action. Some statements result in a value which can be assigned to a variable, in which case the statement is also an expression. All expressions are statements, but not all statements are expressions. 
+
+This is a statement: 
+
+\begin{lstlisting}
+cout << "hello.";
+\end{lstlisting}
+
+The action this statement performs is the displaying of the character sequence ``hello.''. This statement does not produce a value.
+
+This is an expression:
+
+\begin{lstlisting}
+a + 4;
+\end{lstlisting}
+
+This expression calculates the value of variable a added to the value 4. This produces a value which can be assigned to a variable, displayed to the screen, or used in another statement. 
 
 \end{document}
