@@ -111,7 +111,13 @@ After a variable has been declared, it's stored value can be fetched by simply r
 
 \subsection*{Expressions and Statements}
 
-Formally, every C++ program is a sequence of statements. Each statement performs an action. Some statements result in a value which can be assigned to a variable, in which case the statement is also an expression. All expressions are statements, but not all statements are expressions. 
+Formally, every C++ program is a sequence of statements. Each statement performs an action. There are two types of C++ statements, compiler statements and preprocessor statements. 
+
+Preprocessor statements begin with a `\#' symbol at the start of a line. These type of statements are used for modifying or generating compiler statements. For example, the `\#include' preprocessor statment is used for inserting source code from an external file into the current source code. 
+
+Compiler statements describe what the program will do. Compiler statements are delimited by a semicolon, and you may have multiple of these statements on a single line.
+
+Some statements result in a value which can be assigned to a variable, in which case the statement is also an expression. All expressions are statements, but not all statements are expressions. 
 
 This is a statement: 
 
@@ -128,5 +134,43 @@ a + 4;
 \end{lstlisting}
 
 This expression calculates the value of variable a added to the value 4. This produces a value which can be assigned to a variable, displayed to the screen, or used in another statement. 
+
+\subsection*{Analysis of the Hello World program}
+
+Let us return to your first program, the hello world program. Here is hello.cpp again with line numbers on the left:
+
+\lstset{numbers=left}
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int main()
+{
+	cout << "hello world" << endl;
+	return 0;
+}
+\end{lstlisting}
+
+Line 1 is a preprocessor statement, iostream is the name of a file included in every C++ distribution. iostream contains statements that allows us to receive and display messages in our terminal window. One variable that iostream exports is the ``cout'' variable. cout stands for character out. All data that you write into cout gets displayed in your terminal window, or more generally what we call ``standard output''. 
+
+Line 2 is related to a concept in C++ known as namespaces. In C++, when we declare variables or functions we can choose to place them inside a namespace. Namespaces can exist inside other namespace too. The perceived benefit of namespaces is to prevent source code from different programmers from conflicting with each other if their code happens to use the same variable names. To access a namespaced variable, requires that you type the name of all the containing namespaces as well as the variable name. The built-in source code bundled with every C++ distribution exists under the namespace called ``std''. All variables that do not exist inside a declared namespace are said to exist in the global namespace. 
+
+The ``using namespace std'' statement means that we wish to take all variables from inside the std namespace and move them into the global namespace. Without this statement, we would have to type ``std::cout'' every time we wish to use cout. We would also have to type ``std::'' before using any other variable from the C++ library. This command allows us to use cout without typing the preceeding ``std::''.
+
+Line 3 is the declaration of a function called main. You will learn more about functions later on in this course, for now you should just know that the main function signifies the starting point of your program's execution. 
+
+Lines 4 and 7 encloses the sequence of statements that gets executed inside the main function.
+
+Line 5 is the statement that displays the character sequence ``hello world''. Recall that a value of type char is enclosed in single-quotes. C++ allows us to create a sequence of characters by using double-quotes. This sequence of characters is what we call a C-string. C-strings have the type ``const char *'' which you will learn more about later.
+
+Line 6 is the final statement that gets executed while our program is running. It instructs the execution of our main function to stop and give the value zero as the exit status code to our operating system. After running any program in our terminal, you may use the following command to check that program's exit status:
+
+\lstset{numbers=none}
+\begin{lstlisting}
+echo $?
+\end{lstlisting}
+
+The result will be 0 if the program exited normally, any non-zero value indicates an error.
+
+You may change the value in hello.cpp on line 6 to something like ``return 2;''. After recompiling and running your program, use the ``echo \$?'' command to see the exit status.
 
 \end{document}
