@@ -27,6 +27,30 @@ int main()
 Compile and run the above program on your system
 
 \subsubsection*{Exercise 2}
+The following program calculates the area of a rectangle:
+\begin{lstlisting}[caption=area.cpp]
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	double length;
+	double width;
+	double area;
+
+	cout << "Enter the length: ";
+	cin >> length;
+	cout << "Enter the width: ";
+	cin >> width;
+	area = length * width;
+	cout << "The area is: " << area << endl;
+	return 0;
+}
+\end{lstlisting}
+Modify this program to calculate the volume of a rectangular prism after 3 side lengths are input from the user.
+
+\subsubsection*{Exercise 3}
+This program displays a greeting after asking for your name.
 \begin{lstlisting}[caption=name.cpp]
 #include <iostream>
 using namespace std;
@@ -43,11 +67,5 @@ int main()
 }
 \end{lstlisting}
 Modify the above program to make it ask the user for their first and last name. Then make it display ``Hello, '' followed by their first and last name.
-
-\subsubsection*{Exercise 3}
-Create a program that calculates the volume of a cube from 3 side lengths given by the user. Name your source code volume.cpp
-
-\subsubsection*{Exercise 4}
-Create a program that calculates the mean value of 3 numbers given by the user.
 
 \end{document}
