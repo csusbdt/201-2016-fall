@@ -127,6 +127,68 @@ a + 4;
 
 This expression calculates the value of variable a added to the value 4. This produces a value which can be assigned to a variable, displayed to the screen, or used in another statement. 
 
+\subsection*{Operators}
+
+While a literal value or a variable is a valid expression. Expressions are often the result of using operators. Operators perform some kind of calculation with one or more values. For example, you have already seen the addition operator:
+\begin{lstlisting}
+int a;
+int b;
+int c;
+a = 2;
+b = 3;
+c = a + b;
+\end{lstlisting}
+In this example, the final value of variable c is 5. The addition (`+') operator sums it's left operand and right operand and produces one value. In this example the left operand is the value of variable a and the right operand is the value of variable b, whose initial values are 2 and 3 respectively.
+
+From the previous example you can intuitively grasp the function of the `=' operator. We call this the assignment operator, it takes the value from the right operand and assigns to the variable on the left operand.
+
+Operators which take two operands, one on the left and one on the right, are known as binary operators. Here is a table of some of the binary operators available in C++:
+
+\begin{tabular}{|l|l|}
+\hline
+Operator & Description \\
+\hline
+$+$ & addition \\
+\hline
+$-$ & subtraction \\
+\hline
+$*$ & multiplication \\
+\hline
+$/$ & division \\
+\hline
+$\%$ & modulo \\
+\hline
+\end{tabular} \\
+
+The modulo operator gives you the remainder if you were to divide the left operand by the right operand. For example, $22\ \%\ 5$ gives you 2.
+
+\subsection*{Basic I/O}
+
+In computing, I/O stands for Input/Output. In every programming language, you have the ability to perform input and output. For CLI programs, the source of your program's input usually comes from the keyboard, where data is entered by the user. The program's output usually arrives in the terminal window. In reality, the input does not have to come from the user, a program's input may come from a file, or a network connection, or from another program's output. Likewise the output of a program does not have to go to the screen, it could go into a file, or be sent over a network, or be sent to another program's input.
+
+A program does not have to know where it's input is coming from or where it's output is going to, the operating system handles that behind the scenes. Every time a program runs, the operating system sets up two objects available to that program. These objects are called ``standard input'' and ``standard output''. Standard input gives us access to the data that is being sent to our program. Standard output gives us access to an outlet into which we can output data from our program.
+
+C++ has two built-in variables for accessing standard input and standard output. First, we have the ``cout'' variable. cout is linked to standard output. cout is a special type of variable, whose data type is not among the other basic data types like int or double. cout supports the $<<$ operator, known as the insertion operator. This operator is used for data output. You have already seen it in action:
+
+\begin{lstlisting}
+cout << "Writing data to standard output";
+\end{lstlisting}
+
+Anything that you write to cout using the $<<$ operator gets sent to your program's standard output.
+
+To access standard input, C++ gives us the ``cin'' variable. Reading data from standard input is performed by using the $>>$ operator, which is called the extraction operator:
+
+\begin{lstlisting}
+int age;
+cout << "Enter your the age of your car: ";
+cin >> age;
+cout << "Time to buy a new one!" << endl;
+\end{lstlisting}
+
+In the above example, we used the ``cin'' variable to read an integer value into the variable age. You may use cin to read values of any basic data type and store them into a variable. 
+
+cin and cout stand for ``character in'' and ``character out''. 
+
 \subsection*{Analysis of the Hello World program}
 
 Let us return to your first program, the hello world program. Here is hello.cpp again with line numbers on the left:
