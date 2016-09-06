@@ -12,7 +12,7 @@ Lecture 0 Notes \\
 
 \subsection*{Introduction}
 
-CSE 201 is ont of the first CSE courses that students at CSUSB enroll in. Many new students are unaware of what Computer Science and Engineering demands from it's potential scholars. It is first important to know that wwe are not studying the computer; the computer is simply a tool for us to apply our theories. What we are studying is: not the computer, but computation itself, or (in other words) algorithms. An algorithm is a set of instructions for performing a particular task.
+CSE 201 is one of the first CSE courses that students at CSUSB enroll in. Many new students are unaware of what Computer Science and Engineering demands from it's potential scholars. It is first important to know that wwe are not studying the computer; the computer is simply a tool for us to apply our theories. What we are studying is: not the computer, but computation itself, or (in other words) algorithms. An algorithm is a set of instructions for performing a particular task.
 
 Creating algorithms involves a significant application of logic and math. Inside a computer, an algorithm can physically exist in the form of a computer program. the process of creating a computer program is called computer programming.
 
@@ -30,11 +30,13 @@ Despite it's primitiveness and steep learning curve, CLI is still very popular a
 
 The official operating system for the CSE deparment is Linux, it is also the most popular operating system for programmers and computer enthusiasts. You can access the CLI on this operating system by running an application known as Terminal. While the terminal is used for displaying the command-line interface, the real program responsible for interpreting the commands that you type is known as the shell. There are several shells available, the most popular one used on Linux is known as Bash.
 
-This will be the only lecture where CLI is covered. As a student, you will be expected to become skilled at the command-line through practice and self-study. If would like, you may take an optional course: CSE 360. Script Programming. That course covers command-line and text processing.
+This will be the only lecture where CLI is covered. As a student, you will be expected to become skilled at the command-line through practice and self-study. If you would like, you may take an optional course: CSE 360. Script Programming. That course covers command-line and text processing.
 
 %\subsection*{Some simple commands}
 
-Let us start looking at some simple commands supported by Bash. After you run Terminal, you will be greeted with a black or white window and some text that might look like:
+\subsection*{Very brief introduction to CLI}
+
+For a very brief introduction to Bash and CLI in general, Let us start looking at some simple commands supported by Bash. After you run Terminal, you will be greeted with a black or white window and some text that might look like:
 
 \begin{lstlisting}
 mark@mainpc ~/
@@ -60,7 +62,45 @@ If I wanted to move the projects directory into my Documents directory, I would 
 mv Projects Documents
 \end{lstlisting}
 
+If I had a file named ``hello.cpp'' in my home directory, I can use the following command to display it's contents in the terminal:
+\begin{lstlisting}
+cat hello.cpp
+\end{lstlisting}
+
+I can create a backup file of hello.cpp with the name hello.cpp.bak:
+\begin{lstlisting}
+cp hello.cpp hello.cpp.bak
+\end{lstlisting}
+
+The pattern here is that everything you type in the CLI follows this format:
+\begin{lstlisting}
+[command] [argument 1] [argument 2] [...] [argument n]
+\end{lstlisting}
+
+Depending on the command, the arguments might be optional, otherwise the arguments are additional information needed by the command in order to function. For example, the mkdir command needs the argument specifying the name of the folder to create.
+
+Some commands do not need arguments, such as the ``date'' command which displays the current date and time, or the ``whoami'' command which displays your username.
+
+The CLI is not only useful for file manipulation, but also: text processing, math, computer security configuration, online file transfers, email, music playback. Even web browsing is possible in the CLI (but without images or videos). If you learn enough about it, you can do anything on the command-line except web browsing and gaming.
+
 There are too many useful Bash commands to cover. Even though your first assignment will be on using the command-line, you will be expected to learn them on your own, there are plenty of online resources to help you. Most of the instruction in this course will be on computer programming using C++.
+
+\subsection*{Terminology}
+
+Before you start researching this on your own, remember these terminologies:
+\begin{itemize}
+\item ``Linux'' is an operating system. 
+\item ``Bash'' is a shell. 
+\item ``Gnome Terminal'' is a terminal emulator.
+\end{itemize}
+
+An operating system is the software that directly controls your computer's hardware on behalf of all other software installed on your computer. Examples of operating systems include: Linux, Mac OS X, and Windows. 
+
+A shell is a program for performing actions available from your operating system. A shell be a command-line interface (CLI) or a graphical-user interface (GUI). Examples of graphical shells for Linux include: Gnome, LXDE, KDE. The official Mac OS X graphical shell is called ``Aqua''. The official Windows graphical shell is called ``Windows Shell''. Bash is a command-line interface shell available for Linux and Mac OS X. Command Prompt is the CLI shell offered by Windows. 
+
+A terminal emulator is a program that provides an alternative interface from the rest of your operating system's interface. Typically this alternative interface is a text-only interface. Terminal emulators are often used for interfacing with a CLI shell. 
+
+If you want to learn about CLI commands for Linux, you should use the word ``Bash'' in your search engine queries. 
 
 Here is a list of Bash commands that you may find yourself frequently using: pwd, cd, ls, cp, mv, rm, mkdir, rmdir, zip, unzip, ssh, scp, sftp, cat, pr, expand, nl, lpstat, lpr, clear, grep, find, du.
 
