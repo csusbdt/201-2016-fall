@@ -1,0 +1,123 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\begin{document}
+\lstset{frame=single,tabsize=4,basicstyle=\ttfamily}
+
+{\centering \bf \Large
+Lecture 3 Notes \\[\baselineskip]
+}
+
+\subsection*{Functions}
+
+One of the most important features of any programming language is the support for functions. You may already know how functions work without realizing it, the concept is similar to mathematical functions. In computer programming, a function is basically a block of code. When programming, we may type out a sequence of statements which we may frequently execute in different parts of our program. Instead of copying and pasting the same code everytime we want to use it, we can simply place all our code inside a function. Then whenever we want to run our special code, we just refer to the name of the function. 
+
+Here is an example of a function:
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+void hr()
+{
+	cout << "---------------------------------" <<
+	"-----------------------------------------" <<
+	"-----" << endl;
+}
+
+int main()
+{
+	hr();
+	cout << "Fancy" << endl;
+	hr();
+	return 0;
+}
+
+\end{lstlisting}
+
+This example code shows the function named ``hr'' which prints a horizontal line in the terminal window. The keyword ``void'' denotes that this function does not return a value (which we will go into more detail soon). The empty pair of parenthesis after hr denotes that this function does not have any input variables (known as parameters). 
+
+Whenever we want to execute the code inside our hr function, we use \texttt{hr()} in our C++ statement. 
+
+Functions may also receive input values which are stored as local variables inside the function. Consider this example:
+
+\begin{lstlisting}
+void hr(char c)
+{
+	int i;
+	for (i = 0; i < 79; ++i) {
+		cout << c;
+	}
+	cout << endl;
+}
+\end{lstlisting}
+
+Now our hr function can use any character for the horizontal line. To execute our function, we must specify a character value as an argument to the function like this:
+
+\begin{lstlisting}
+hr('=');
+\end{lstlisting}
+
+C++ supports default values for functions:
+
+\begin{lstlisting}
+void hr(char c = '-', int len = 79)
+{
+	int i;
+	for (i = 0; i < len; ++i) {
+		cout << c;
+	}
+	cout << endl;
+}
+
+int main()
+{
+	hr();
+	cout << "Fancy";
+	hr();
+}
+\end{lstlisting}
+
+Since no arguments were given to the hr function, the values for parameters c and len defaulted to `-' and 79. For this function, we could have also given 1 argument for parameter c and omitted the argument for the len parmaeter.
+
+Functions may also have return values:
+
+\begin{lstlisting}[caption=gcd.cpp]
+#include <iostream>
+using namespace std;
+
+int gcd(int a, int b)
+{
+	int n;
+
+	if (a < b) {
+		n = a;
+	} else {
+		n = b;
+	}
+	while (n > 1) {
+		if (a % n == 0 and b % n == 0) {
+			return n;
+		}
+		--n;
+	}
+	return 1;
+}
+
+int main()
+{
+	int n, m;
+
+	cout << "Enter an integer: ";
+	cin >> n;
+	cout << "Enter another integer: ";
+	cin >> m;
+	cout << "The greatest common divisor is: " <<
+	gcd(n, m) << endl;
+}
+\end{lstlisting}
+This program finds the greatest common divisor of two integers. The ``int'' before the function name ``gcd'' indicates that the data type of the function's return value is an integer. If our function has no return value, we use ``void'' as the return type.
+
+Functions are useful because they are often created to perform a particular task. The task that a function performs can be re-used in other programs that you create. With the right number of functions, you can break down any big problem into a number of smaller tasks.
+
+
+\end{document}
