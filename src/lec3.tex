@@ -81,40 +81,8 @@ Since no arguments were given to the hr function, the values for parameters c an
 
 Functions may also have return values:
 
-\begin{lstlisting}[caption=gcd.cpp]
-#include <iostream>
-using namespace std;
+\lstinputlisting[caption=gcd.cpp]{code/gcd.cpp}
 
-int gcd(int a, int b)
-{
-	int n;
-
-	if (a < b) {
-		n = a;
-	} else {
-		n = b;
-	}
-	while (n > 1) {
-		if (a % n == 0 and b % n == 0) {
-			return n;
-		}
-		--n;
-	}
-	return 1;
-}
-
-int main()
-{
-	int n, m;
-
-	cout << "Enter an integer: ";
-	cin >> n;
-	cout << "Enter another integer: ";
-	cin >> m;
-	cout << "The greatest common divisor is: " <<
-	gcd(n, m) << endl;
-}
-\end{lstlisting}
 This program finds the greatest common divisor of two integers. The ``int'' before the function name ``gcd'' indicates that the data type of the function's return value is an integer. If our function has no return value, we use ``void'' as the return type.
 
 Functions are useful because they are often created to perform a particular task. The task that a function performs can be re-used in other programs that you create. With the right number of functions, you can break down any big problem into a number of smaller tasks.
@@ -127,7 +95,7 @@ To help prevent this, C++ allows us to insert notes in our source code without m
 
 \newpage
 
-\lstinputlisting[caption=prime.cpp]{prime.cpp}
+\lstinputlisting[caption=prime.cpp]{code/prime.cpp}
 
 \newpage
 
