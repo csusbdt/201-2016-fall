@@ -8,40 +8,17 @@
 Lecture 1 Notes \\[\baselineskip]
 }
 
-\subsection*{Your first program}
+\subsection*{Statements}
 
-The first program that you usually create in any programming language is known as the ``hello world'' program. The only function of this program is to display a message. In C++ that program can be expressed in the following form:
+A computer program is composed of a sequence of statements. Each statement gets executed one after another. A statement may create data, read data, write data, perform a calculation, or transfer execution to another part of the program. In the C++ programming language, there are five categories of statements: declarations, expressions, selections, jumps, and iterations. 
 
-\begin{lstlisting}[caption=hello.cpp]
-#include <iostream>
-using namespace std;
+A declaration is a statement that creates a variable. Variables store data and can be referenced by name. There are different types of variables as well as different types of data. We will cover these shortly. For now, take note that C++ operates with ``values''. A value is an instance of data in a particular data format. Examples of values include the integer value 4, the number 9.81, the letter `A', the text value ``hello''. 
 
-int main()
-{
-	cout << "hello world" << endl;
-	return 0;
-}
-\end{lstlisting}
-
-This is what we call the source code of a computer program. Source code is the human readable version of a computer program's algorithm. We must convert source code into a computer program before we can execute it (a process known as compiling), this is done by using a program known as a compiler. 
-
-Compilers as well as other programmer tools can be executed through the operating system's command-line interface. 
-
-Assuming that you are using Linux, if you saved hello.cpp in your Documents folder, then you can compile it by typing these commands into your terminal emulator:
-\begin{lstlisting}
-cd ~/Documents
-c++ hello.cpp
-\end{lstlisting}
-A program named ``a.out'' will be produced.  You may execute the a.out program with the following command:
-\begin{lstlisting}
-./a.out
-\end{lstlisting}
-
-Take note that the compiler and the hello world program both execute within an environment known as the command-line interface. This environment has text-only graphics; devoid of any buttons, scrollbars, or images. This is a programmer-friendly environment that is not only easier to create programs in, but also extends more power to the user. 
+An expression is a statement that creates a value, whether it be the spontaneous creation of a value or the result of a calculation. Creating values, adding values, multiplying values, comparing values, and assigning values to variables are all examples of expressions.
 
 \subsection*{Data types}
 
-A computer program is usually created for processing data. Processing data requires being able to distinguish between different types of data. The C++ programming language supports many elementary data types, four of them that you should know are in the following table: \\
+In C++, every value contains data that conforms to a particular data type. The data type of a value must be known in order to know how the data can be interpreted and manipulated. C++ supports many data types as well as the creation of new data types. Here are four primitive data types supported by C++: \\
 
 \begin{tabular}{|l|l|l|}
 \hline
@@ -57,146 +34,128 @@ double & 8 bytes & $\pm1.7 \times 10^{308}$ \\
 \hline
 \end{tabular} \\
 
-bool is short for boolean. Data of type bool can have one of two values: true or false. Some expressions in C++ often result in a boolean value, this is typically the case when you are mathematically comparing two values.
+All data requires space in order to be stored. The fundamental unit of space for computers is known as the byte. A byte can represent 256 possible values. The more bytes you have, the more values you can represent. C++ uses 4 bytes for the ``int'' data type; the data type used for representing integers. Since 1 byte can represent 1 of 256 possible values, 4 bytes can represent $256^4$ or approximately 4 billion possible values. Since the ``int'' data type should also store negative numbers, C++ uses approximately 2 billion of it's possible values for the negative integer values and approximately 2 billion of it's other possible values for the positive integer values.
 
-char is short for character. It represents almost any key that you can press from your keyboard. A character can have a value such as: `a', `3', `\%', `.', ` ', `J'. All text that you see on your computer screen is stored in the computer's memory as sequences of characters. While C++ allows you to express characters as their symbol in single-quotes, each character actually represents an integer within the range of 1 byte.
+The ``char'' data type represents characters which are symbols used primarily in human language. 1 byte seems good enough to store the alphabet of almost any one human language at a time, including any punctuation symbols and whitespace. 
 
-int stands for integer. It represents a negative or positive whole number. Integers are useful for basic arithmetic where fractional values are not required. 
+The ``bool'' data type represents only two values: true or false. A value of this data type is usually produced as the result of comparing two values. It is more useful than you think.
 
-double stands for double-precision floating-point. You do not need to know what that means exactly, just know that double is used for representing fractional numbers. If you are performing any scientific or financial calculations, you should use this data type as opposed to an integer. 
-
-There are many other basic data types in C++, some of them are variations of the int and double data types. In this course, we will stick to these four basic data types.
+The ``double'' data type represents real numbers. Unlike integers, a double can represent fractional values and irrational numbers. If you are doing any scientific or financial calculations, you should use double as opposed to int. 
 
 \subsection*{Variables}
 
-In addition to distinguishing between different types of data, computer programs should have a way to store data. C++, as well as many other programming languages, allow you to do this by declaring variables.
-
-In C++, all variables have a data type, a name, and a value. To declare a variable, you must specify at least the data type and the name of the variable. For instance:
-
-\begin{lstlisting}[caption=A series of variable declarations in C++]
+Every variable has two things: a name and a value. To declare a variable in C++, you must specify the data type and the name of your new variable, you may optionally assign an initial value. 
+\begin{lstlisting}[caption=A series of declaration statements in C++]
 int x;
 double amount;
 bool cointoss;
-int weight = 150;
-double balance = 5071.12;
-char q = 'A';
+int weight = 200;
+double balance = 3070.12;
+char c = 'A';
 bool verified = true;
 \end{lstlisting}
 
-As you can see, variables can optionally have a value assigned upon declaration. If no value is assigned, the default value is used: \\
+Variable names in C++ can only contain alphanumeric characters (excluding spaces) and cannot begin with a digit character. You may include underscores (`\_') in your variable names. After declaring a variable, you may optionally assign a value to it with the `=' symbol (In C++, the `=' symbol is known as the assignment operator). If you do not assign a value, then the default value will be zero or false. 
+
+\subsection*{Expressions}
+
+An expression returns a value. Very often an expression may perform one or more of these actions: create a value, retrieve the value of a variable, assign a value to a variable, perform a calculation between one or two expressions. 
+
+There are many types of expressions. For now, the ones you should learn about are: literal values, assignment expressions, arithmetic expressions, and I/O expressions. 
+
+A literal value is a value that is not stored in a variable. Here are examples of literal values and their data types: \\
 
 \begin{tabular}{|l|l|}
 \hline
-{\bf Data type} & {\bf Default value} \\
+Data Type & Literal values \\
 \hline
-bool & false \\
+bool & true, false \\
 \hline
-char & '\textbackslash 0' \\
+char & `B', `5', `@', ` ' \\
 \hline
-int & 0 \\
+int & 10, 7, 800, -23, 0, -46 \\
 \hline
-double & 0.0 \\
+double & 459.54, 0.0, -1.34, 9.81e+2, -500.0e-6 \\
+\hline
+const char* & ``hello'', ``As above, so below'' \\
 \hline
 \end{tabular} \\
 
-After a variable has been declared, it's stored value can be fetched by simply referring to the name of the variable. 
+The last data type literally reads ``constant character pointer'', it is the data type of a sequence of characters. You will learn more about them later.
 
-\subsection*{Expressions and Statements}
+An assignment expression assigns a value to a variable, the new value of the variable is the result of the expression as a whole. Here are a few assignment expressions:
 
-Formally, every C++ program is a sequence of statements. Each statement performs an action. There are two types of C++ statements, compiler statements and preprocessor statements. 
-
-Preprocessor statements begin with a `\#' symbol at the start of a line. These type of statements are used for modifying or generating compiler statements. For example, the `\#include' preprocessor statment is used for inserting source code from an external file into the current source code. 
-
-Compiler statements describe what the program will do. Compiler statements are delimited by a semicolon, and you may have multiple of these statements on a single line.
-
-Some statements result in a value which can be assigned to a variable, in which case the statement is also an expression. All expressions are statements, but not all statements are expressions. 
-
-This is a statement: 
-
-\begin{lstlisting}
-cout << "hello.";
+\begin{lstlisting}[caption=Examples of assignment expressions]
+x = 4;
+foo = bar;
+a = b = c = d;
 \end{lstlisting}
 
-The action this statement performs is the displaying of the character sequence ``hello.''. This statement does not produce a value.
+The first expression assigns a literal value 4 to the variable x. The second expression assigns the value inside variable bar to the variable foo. The third expression assigns the value d to variables a, b, and c. 
 
-This is an expression:
 
-\begin{lstlisting}
-a + 4;
-\end{lstlisting}
+The multiple assignments performed in the third assignment demonstrates how the result of one expression can be used inside another expression. The assignment \texttt{c = d} returns the new value of c, which was used as the value to be assigned to variable b, the new value of b was then used to assign to variable a. The variable d is itself an expression that returns the value stored in variable d. So what we have here are three sub-expressions inside one whole expression.
 
-This expression calculates the value of variable a added to the value 4. This produces a value which can be assigned to a variable, displayed to the screen, or used in another statement. 
-
-\subsection*{Operators}
-
-While a literal value or a variable is a valid expression. Expressions are often the result of using operators. Operators perform some kind of calculation with one or more values. For example, you have already seen the addition operator:
-\begin{lstlisting}
-int a;
-int b;
-int c;
-a = 2;
-b = 3;
-c = a + b;
-\end{lstlisting}
-In this example, the final value of variable c is 5. The addition (`+') operator sums it's left operand and right operand and produces one value. In this example the left operand is the value of variable a and the right operand is the value of variable b, whose initial values are 2 and 3 respectively.
-
-From the previous example you can intuitively grasp the function of the `=' operator. We call this the assignment operator, it takes the value from the right operand and assigns to the variable on the left operand.
-
-Operators which take two operands, one on the left and one on the right, are known as binary operators. Here is a table of some of the binary operators available in C++:
+Arithmetic expressions create values by performing a calculation on one or more values (or sub-expressions). Arithmetic expressions make use of any of the arithmetic operators: \\
 
 \begin{tabular}{|l|l|}
 \hline
-Operator & Description \\
+Operator Name & Symbol \\
 \hline
-$+$ & addition \\
+Addition & \texttt{+} \\
 \hline
-$-$ & subtraction \\
+Subtraction & \texttt{-} \\
 \hline
-$*$ & multiplication \\
+Multiplication & \texttt{*} \\
 \hline
-$/$ & division \\
+Division & \texttt{/} \\
 \hline
-$\%$ & modulo \\
+Modulo & \texttt{\%} \\
 \hline
 \end{tabular} \\
 
-The modulo operator gives you the remainder if you were to divide the left operand by the right operand. For example, $22\ \%\ 5$ gives you 2.
+Each of the above operators require two operands, one on the left-hand side of the operator and the other on the right-hand side of the operator. So the expression \texttt{a + b} uses the addition operator and the left-operand is the variable a and the right-operand is the variable b.
 
-\subsection*{Basic I/O}
+These operators should be self-explanatory, they can be used with the \texttt{int} or \texttt{double} data types. The modulo operator is similar to the division operator except for the fact that it returns the remainder instead of the quotient of the division. 
 
-In computing, I/O stands for Input/Output. In every programming language, you have the ability to perform input and output. For CLI programs, the source of your program's input usually comes from the keyboard, where data is entered by the user. The program's output usually arrives in the terminal window. In reality, the input does not have to come from the user, a program's input may come from a file, or a network connection, or from another program's output. Likewise the output of a program does not have to go to the screen, it could go into a file, or be sent over a network, or be sent to another program's input.
+An I/O expression is not a formally recognized expression type, but it can be suitable for your learning. An I/O expression uses one of these operators: \\
 
-A program does not have to know where it's input is coming from or where it's output is going to, the operating system handles that behind the scenes. Every time a program runs, the operating system sets up two objects available to that program. These objects are called ``standard input'' and ``standard output''. Standard input gives us access to the data that is being sent to our program. Standard output gives us access to an outlet into which we can output data from our program.
+\begin{tabular}{|l|l|}
+\hline
+Operator Name & Symbol \\
+\hline
+Insertion & \texttt{<<} \\
+\hline
+Extraction & \texttt{>>} \\
+\hline
+\end{tabular} \\
 
-C++ has two built-in variables for accessing standard input and standard output. First, we have the ``cout'' variable. cout is linked to standard output. cout is a special type of variable, whose data type is not among the other basic data types like int or double. cout supports the $<<$ operator, known as the insertion operator. This operator is used for data output. You have already seen it in action:
+I/O stands for Input/Output, it is related to data transfer on a stream. In C++, there are two data types related to streams. \\
 
-\begin{lstlisting}
-cout << "Writing data to standard output";
-\end{lstlisting}
+\begin{tabular}{|l|l|}
+\hline
+Data Type & Description \\
+\hline
+istream & Input stream \\
+\hline
+ostream & Output stream \\
+\hline
+\end{tabular} \\
 
-Anything that you write to cout using the $<<$ operator gets sent to your program's standard output.
+An ostream represents a destination to continually write data into. An ostream can be used to write data to a computer's display, or a file, or a network connection, just to name a few examples. All C++ programs can use a pre-declared variable known as \texttt{cout} in order to write to the program's standard output stream; for CLI programs, writing to \texttt{cout} usually results in data being displayed in the terminal window.
 
-To access standard input, C++ gives us the ``cin'' variable. Reading data from standard input is performed by using the $>>$ operator, which is called the extraction operator:
+An istream represents a source to continually read data from until no more data is available. An istream can be used to read data from the computer's keyboard, or a file, or a network connection. The data read from an istream can be stored in variables. All C++ programs can use a pre-declared variable known as \texttt{cin} in order to read from the program's standard input stream; for CLI programs, reading from \texttt{cin} usually results in data being read from the computer's keyboard.
 
-\begin{lstlisting}
-int age;
-cout << "Enter your the age of your car: ";
-cin >> age;
-cout << "Time to buy a new one!" << endl;
-\end{lstlisting}
+The result of an I/O expression is the istream or ostream variable that you are working with, therefore you may chain the I/O operators to read or write multiple values on the stream.
 
-In the above example, we used the ``cin'' variable to read an integer value into the variable age. You may use cin to read values of any basic data type and store them into a variable. 
+\subsection*{The Hello World program}
 
-cin and cout stand for ``character in'' and ``character out''. 
+Now we that know all of that theory, let us take a look at a very simple program: the hello world program:
 
-\subsection*{Analysis of the Hello World program}
-
-Let us return to your first program, the hello world program. Here is hello.cpp again with line numbers on the left:
-
-\lstset{numbers=left}
-\begin{lstlisting}
+\begin{lstlisting}[caption=hello.cpp]
 #include <iostream>
 using namespace std;
+
 int main()
 {
 	cout << "hello world" << endl;
@@ -204,29 +163,36 @@ int main()
 }
 \end{lstlisting}
 
-Line 1 is a preprocessor statement, iostream is the name of a file included in every C++ distribution. iostream contains statements that allows us to receive and display messages in our terminal window. One variable that iostream exports is the ``cout'' variable. cout stands for character out. All data that you write into cout gets displayed in your terminal window, or more generally what we call ``standard output''. 
+This is what we call the source code of a computer program. Source code is a human-readable version of a computer program's algorithm. We must convert source code into a computer program before we can execute it (a process known as compiling), this is done by using a program known as a compiler. 
 
-Line 2 is related to a concept in C++ known as namespaces. In C++, when we declare variables or functions we can choose to place them inside a namespace. Namespaces can exist inside other namespaces too. The perceived benefit of namespaces is to prevent source code from different programmers from conflicting with each other if their code happens to use the same variable names. To access a namespaced variable, requires that you type the name of all the containing namespaces as well as the variable name. The built-in source code bundled with every C++ distribution exists under the namespace called ``std''. All variables that do not exist inside a declared namespace are said to exist in the global namespace. 
+Before we compile hello.cpp lets walk through what each line does.
 
-The ``using namespace std'' statement means that we wish to take all variables from inside the std namespace and move them into the global namespace. Without this statement, we would have to type ``std::cout'' every time we wish to use cout. We would also have to type ``std::'' before using any other variable from the C++ library. This command allows us to use cout without typing the preceeding ``std::''.
+Line 1 is not really a statement for our program, it is a statement for the preprocessor. The preprocessor is a special program that modifies our source code before it actually gets compiled. \texttt{\#include $<$iostream$>$} means take all the code from the iostream file and paste it at the current line in our source code. iostream is a file that comes pre-packaged with any C++ distribution, it includes declarations of the \texttt{cin} and \texttt{cout} variables which we will use to perform standard I/O. 
 
-Line 3 is the declaration of a function called main. You will learn more about functions later on in this course, for now you should just know that the main function signifies the starting point of your program's execution. 
+Line 2 is a special statement that's related to namespaces. A namespace is like a folder that you can declare all your variables inside of. All built-in C++ variables, including \texttt{cin} and \texttt{cout}, are declared inside the ``std'' namespace. To access a variable inside a namespace requires that you type the name of the namespace, followed by two colons, followed by the variable name. \texttt{using namespace std;} means to take all variables inside the std namespace and bring them out into the global, unnamed namespace, where they can be accessed without referring to std. Without this statement you would have to type \texttt{std::cout} everytime you needed to use \texttt{cout}. For this course, you should always include this statement in your program.
 
-Lines 4 and 7 encloses the sequence of statements that gets executed inside the main function.
+\texttt{int main()} is the declaration of a function. A function, which you will learn more about later, is a sequence of statements which the program can execute at any time. In C++, the function labeled ``main'' is the entry point of every program, it is the first function that gets executed. 
 
-Line 5 is the statement that displays the character sequence ``hello world''. Recall that a value of type char is enclosed in single-quotes. C++ allows us to create a sequence of characters by using double-quotes. This sequence of characters is what we call a C-string. C-strings have the type ``const char *'' which you will learn more about later. On line 5, we are taking the C-string value ``hello world'' and writing it into our variable ``cout''. The $<<$ operator indicates that we are writing data from the right-hand side of the operator to the variable on the left-hand side of the operator. The $<<$ operator used in this context only works on variables that are of type ``ostream''. ostream is a special data type included in C++. You may write multiple data into an ostream object in one statement by chaining the $<<$ operator. In our example, we write both ``hello world'' and the value of variable endl into cout. 
+The statements that go inside the main function are enclosed in \texttt{\{} and \texttt{\}}. Statements enclosed inside matching curly braces are known as compound statements or code blocks. 
+\texttt{cout << "hello world" << endl;} makes use of the insertion operator in order to write two values into the program's standard output. The values written include the literal value ``hello world'', whose data type is \texttt{const char*}, and the variable \texttt{endl} which writes a new-line character into any ostream it is written to.
 
-endl is a special built-in variable that inserts a line-break into any ostream object that it is written to.
+\texttt{return 0;} exits the main function with the value 0. This value is the exit code for our program. 0 means success, a non-zero value means the program failed.
 
-Line 6 is the final statement that gets executed while our program is running. It instructs the execution of our main function to stop and give the value zero as the exit status code to our operating system. After running any program in our terminal, you may use the following command to check that program's exit status:
+\subsection*{Compiling hello.cpp}
 
-\lstset{numbers=none}
+Compilers as well as other programmer tools can be executed through the operating system's command-line interface. 
+
+Assuming that you are using Linux, if you saved hello.cpp in your Documents folder, then you can compile it by typing these commands into your terminal emulator:
 \begin{lstlisting}
-echo $?
+cd ~/Documents
+c++ hello.cpp
+\end{lstlisting}
+A program named ``a.out'' will be produced.  You may execute the a.out program with the following command:
+\begin{lstlisting}
+./a.out
 \end{lstlisting}
 
-The result will be 0 if the program exited normally, any non-zero value indicates an error.
+Take note that the compiler and the hello world program both execute within an environment known as the command-line interface. This environment has text-only graphics; devoid of any buttons, scrollbars, or images. This is a programmer-friendly environment that is not only easier to create programs in, but also extends more power to the user. 
 
-You may change the value in hello.cpp on line 6 to something like ``return 2;''. After recompiling and running your program, use the ``echo \$?'' command to see the exit status.
 
 \end{document}
