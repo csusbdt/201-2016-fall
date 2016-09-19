@@ -63,6 +63,8 @@ An expression returns a value. Very often an expression may perform one or more 
 
 There are many types of expressions. For now, the ones you should learn about are: literal values, assignment expressions, arithmetic expressions, and I/O expressions. 
 
+\subsubsection*{Literal value expressions}
+
 A literal value is a value that is not stored in a variable. Here are examples of literal values and their data types: \\
 
 \begin{tabular}{|l|l|}
@@ -83,6 +85,8 @@ const char* & ``hello'', ``As above, so below'' \\
 
 The last data type literally reads ``constant character pointer'', it is the data type of a sequence of characters. You will learn more about them later.
 
+\subsubsection*{Assignment expressions}
+
 An assignment expression assigns a value to a variable, the new value of the variable is the result of the expression as a whole. Here are a few assignment expressions:
 
 \begin{lstlisting}[caption=Examples of assignment expressions]
@@ -95,6 +99,8 @@ The first expression assigns a literal value 4 to the variable x. The second exp
 
 
 The multiple assignments performed in the third assignment demonstrates how the result of one expression can be used inside another expression. The assignment \texttt{c = d} returns the new value of c, which was used as the value to be assigned to variable b, the new value of b was then used to assign to variable a. The variable d is itself an expression that returns the value stored in variable d. So what we have here are three sub-expressions inside one whole expression.
+
+\subsubsection*{Arithmetic expressions}
 
 Arithmetic expressions create values by performing a calculation on one or more values (or sub-expressions). Arithmetic expressions make use of any of the arithmetic operators: \\
 
@@ -118,6 +124,19 @@ Each of the above operators require two operands, one on the left-hand side of t
 
 These operators should be self-explanatory, they can be used with the \texttt{int} or \texttt{double} data types. The modulo operator is similar to the division operator except for the fact that it returns the remainder instead of the quotient of the division. 
 
+The following example uses arithmetic expressions to calculate the area of a circle:
+
+\begin{lstlisting}[caption=Example of arithmetic expressions]
+double diameter;
+double radius;
+double area;
+diameter = 8;
+radius = diameter / 2;
+area = 3.14 * radius * radius;
+\end{lstlisting}
+
+\subsubsection*{I/O expressions}
+
 An I/O expression is not a formally recognized expression type, but it can be suitable for your learning. An I/O expression uses one of these operators: \\
 
 \begin{tabular}{|l|l|}
@@ -130,7 +149,7 @@ Extraction & \texttt{>>} \\
 \hline
 \end{tabular} \\
 
-I/O stands for Input/Output, it is related to data transfer on a stream. In C++, there are two data types related to streams. \\
+I/O stands for Input/Output, it is related to data transfer on a stream. The insertion operator is for writing data to a stream, and the extraction operator is for reading data from a stream. In C++, there are two data types related to streams: \\
 
 \begin{tabular}{|l|l|}
 \hline
