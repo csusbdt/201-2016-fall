@@ -1,0 +1,101 @@
+<html>
+
+<h2>Final Project</h2>
+
+<p>
+On Cloud9, create a folder named "final" in your cse201 workspace. Store all your work for your final project in that folder.
+</p>
+
+<p>
+Your final project is to create a computer program that allows two people to play Connect 4.
+</p>
+
+<p>
+Your program must be completed by 11:59 pm, Friday, December 9. 
+</p>
+
+<h2>About Connect 4</h2>
+
+<p>
+In Connect 4, two players take turns dropping colored discs into a 6x7 grid. The first player to go has yellow discs, and the other player has red discs.
+</p>
+
+<p>
+The discs are dropped from the top of the grid. The disc falls until it reaches the bottom or falls on top of another disc occupying the same column.
+</p>
+
+<p>
+The winning condition is when 4 discs of the same color form a horizontal, vertical, or diagonal line. The game may result in a draw if the entire grid fills up without a winner.
+</p>
+
+<h2>Program specifications</h2>
+
+<p>
+Name your source file c4.cpp. 
+</p>
+
+<p>
+In your program, the turn player will enter the column number of where she wishes to drop her disc. Your program should display what the grid looks like each turn. Yellow discs should be labeled 'Y' and red discs should be labeled 'R'. An empty cell in the grid should be labeled ' '. 
+</p>
+
+<p>
+Your program should detect the winning conditions for horizontal and vertical wins. You will receive extra credit if your program can also detect diagonal wins. 
+</p>
+
+<p>
+Your program should halt when it detects that a player has won or there's a draw.
+</p>
+
+<h2>Connect4Grid class</h2>
+
+<p>
+I have created a class named Connect4Grid which you are required to use in your source code. The class is seperated into two files: Connect4Grid.h and Connect4Grid.cpp.
+</p>
+
+<p>
+Place these files in the same folder as your c4.cpp.
+</p>
+
+<p>
+To use the Connect4Grid class have
+</p>
+
+<pre>#include "Connect4Grid.h"</pre>
+
+in c4.cpp. When compiling, use the command:
+
+<pre>compile c4 c4.cpp Connect4Grid.cpp</pre>
+
+<p>
+<a href="Connect4Grid.h">Download Connect4Grid.h</a> <br>
+<a href="Connect4Grid.cpp">Download Connect4Grid.cpp</a>
+</p>
+
+<p>
+Take a look at Connect4Grid.h to see documentation for it's member functions.
+</p>
+
+<p>
+Here is an example of a program that uses Connect4Grid class:
+</p>
+
+<pre>
+#include "Connect4Grid.h"
+#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+	Connect4Grid grid;
+	int column;
+
+	while (true) {
+		grid.draw();
+		cout &lt;&lt; "Enter column index: ";
+		if (not (cin &gt;&gt; column)) break;
+		grid.drop(column, 'X');
+	}
+}
+</pre>
+
+</html>
